@@ -1,0 +1,24 @@
+#container {
+background-image: url('/themes/hackwork/images/hack-splash-mid.jpg');
+background-repeat: no-repeat;
+background-color: #FFFFFF;
+height: 500px;
+}
+
+#header {
+height:135px;
+background-repeat: no-repeat;
+background-position: 0px 3px;
+background-image: url('/themes/hackwork/images/hack-splash-top.jpg');}
+
+#footer {
+background-image: url('/themes/hackwork/images/hack-splash-bot.jpg');
+background-color: #FFFFFF;
+height: 224px;
+}
+#footer ul {
+	margin-left: 200px;
+}
+#breadcrumbs {
+	display: none;	
+}

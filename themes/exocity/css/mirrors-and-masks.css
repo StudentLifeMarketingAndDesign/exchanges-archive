@@ -1,0 +1,26 @@
+body{
+background-image: url("http://exchanges.uiowa.edu/assets/Mainpages/background6.jpg");
+background-position:bottom;
+background-position:left;
+background-repeat:no-repeat;
+background-color:#000000;
+
+}
+
+#navHolder li a{
+	color:#FFFFFF;
+	font-family:Arial, Helvetica, sans-serif;
+
+
+
+}
+
+#footer li a{
+	color: #FFF
+}
+
+#toc .issueRightColumn p{
+color: #34261d;
+}@charset "UTF-8";
+/* CSS Document */
+

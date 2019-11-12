@@ -1,0 +1,76 @@
+.typography *{
+	font-family: 'IM Fell DW Pica SC', serif;
+	font-weight: lighter;
+	color: #5c4221;
+}
+.typography #breadcrumbs{
+		font-size: 15px;
+	
+}
+
+.typography p{
+	font-family: 'Crimson Text', serif;
+	font-size: 17px;
+}
+.arabic, sanskrit {
+	font: Arial, Helvetica, sans-serif;
+	font-size: 17px;
+}
+.sanskrit {
+}
+.spoiler {
+	background: black;
+	color: black;
+}
+.spoiler:hover {
+	background: black;
+	color: white;
+}
+.typography #toc h1 {
+	font-size:58px;
+	color: #000;
+}
+.typography #toc p {
+	font-size:20px;
+	color: #000;
+}
+.typography #toc em {
+	font-size:16px;
+	font-style:italic;
+	color: #000;
+}
+
+.typography #toc h3 a{
+	font-size: 20px;
+	color: #5c4221;
+}
+.typography #toc h2 {
+	font-size: 22px;
+}
+
+
+#toc ul li {
+	margin: 20px 0;
+	color: #000;
+}
+
+#toc ul li ul li{
+	margin: 0;
+	color: #000;
+}
+.typography #toc li {
+	font-weight:100;
+	font-family: 'IM Fell DW Pica SC', serif;
+	color: #000;
+	font-weight: lighter;
+	font-size:13px;
+}
+.typography #toc h6 {
+	font-weight:100;
+	font-family: 'IM Fell DW Pica SC', serif;
+	color: #000;
+	font-weight: lighter;
+	margin:0px;
+	display:inline;
+	font-size:13px;
+}

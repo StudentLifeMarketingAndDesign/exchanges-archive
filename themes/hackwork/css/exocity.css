@@ -1,0 +1,47 @@
+#container {
+background-color: white;
+background-image: url(/themes/exchanges/images/exocity/container-bg.jpg);
+background-repeat: repeat-y;
+}
+
+#toc_extra img {
+margin-right: 100px;
+margin-top:-75px;
+margin-left:-60px;}
+
+#header {
+height:125px;
+background-repeat: no-repeat;
+background-position: 0px 3px;
+background-image: url(/themes/exchanges/images/exocity/top_grunge.jpg);}
+
+
+
+.typography #toc a {
+	color:#47452a;
+}
+
+.typography #toc em {
+	color:#333;
+}
+
+.typography #toc p {
+	color:#a3b85b;
+
+}
+
+.typography #toc li {
+	color:#999;
+}
+
+.typography #toc h6 {
+	color:black;
+}
+
+#wrapper{
+width:1000px;
+margin: auto;
+background-image: url(themes/exchanges/images/exocity/back_left.jpg);
+background-position: top;
+background-repeat: repeat;
+}

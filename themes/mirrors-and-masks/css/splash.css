@@ -1,0 +1,19 @@
+#container {
+background-image: url(/assets/Uploads/hack-splash-mid.png);
+background-repeat: no-repeat;
+background-color: #FFFFFF;
+}
+
+#header {
+height:125px;
+background-repeat: no-repeat;
+background-position: 0px 3px;
+background-image: url(/assets/Uploads/hack-splash-top.png);}
+
+#footer {
+background-image: none;
+background-color: #FFFFFF;
+}
+#breadcrumbs {
+	display: none;	
+}

@@ -1,0 +1,49 @@
+body {
+	background-color: #FFF;
+}
+#wrapper {
+	background: none;
+}
+#header {
+	background-image: url(../images/hackwork_container_top.jpg);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	height: 144px;
+	padding-bottom: 0;
+}
+#container {
+	padding-top: 0px;
+	background-image: url(../images/hackwork_bg.jpg);
+	background-color: #ebebeb;
+}
+#footer {
+	background-image: url(../images/hackwork_footer.jpg);
+	background-repeat:no-repeat;
+	height: 137px;
+	padding: 20px;
+}
+#footer li a {
+	color: #333;
+}
+#content {
+	padding-top: 0;
+}
+#navHolder li a {
+	color:#000000;
+}
+
+#toc {
+	
+	float: left;}
+	
+#toc_extra {
+	display: none;
+}
+
+.typography *{
+	font-family: Verdana, Geneva, sans-serif;	
+}
+
+.typography p{
+	font-size: 12px; 	
+}

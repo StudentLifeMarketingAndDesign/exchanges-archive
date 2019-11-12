@@ -1,0 +1,82 @@
+.typography * {
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+.arabic, sanskrit {
+	font: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+}
+.sanskrit {
+}
+.spoiler {
+	background: black;
+	color: black;
+}
+.spoiler:hover {
+	background: black;
+	color: white;
+}
+.typography #toc h1 {
+	font-size:33px;
+}
+.typography #toc p {
+	font-size:14px;
+}
+.typography #toc em {
+	font-size:11px;
+	font-style:italic;
+}
+.typography #toc {
+	margin: 20px 0;
+}
+.typography #toc h3 {
+	font-size: 18px;
+}
+.typography #toc h2 {
+	font-size: 22px;
+}
+
+
+#toc ul li {
+	margin: 20px 0;
+}
+
+#toc ul li ul li{
+	margin: 0;	
+}
+.typography #toc li {
+	font-weight:100;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+}
+.typography #toc h6 {
+	font-weight:100;
+	font-family:Arial, Helvetica, sans-serif;
+	margin:0px;
+	display:inline;
+	font-size:13px;
+}
+
+
+
+
+
+.typography #toc a {
+	color:#47452a;
+}
+
+.typography #toc em {
+	color:#333;
+}
+
+.typography #toc p {
+	color:#a3b85b;
+
+}
+
+.typography #toc li {
+	color:#999;
+}
+
+.typography #toc h6 {
+	color:black;
+}

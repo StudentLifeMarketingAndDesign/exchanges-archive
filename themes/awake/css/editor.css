@@ -1,0 +1,36 @@
+
+#toc .issueRightColumn h1 {
+font-size:33px;}
+
+#toc .issueRightColumn p {
+color:#a3b85b;
+font-size:17px;}
+
+#toc .issueRightColumn li.toc  p {
+color:#333;
+font-size:11px;
+font-style:italic;}
+
+#toc .issueRightColumn li.toc h4 a {
+color:#47452a;
+margin:0px;
+font-size:21px;
+}
+
+
+#toc .issueRightColumn li.toc h5  {
+color:#999;
+font-weight:100;
+
+font-family:Arial, Helvetica, sans-serif;
+margin:0px;
+display:inline;
+font-size:13px;}
+
+#toc h6 {
+color:black;
+font-weight:100;
+font-family:Arial, Helvetica, sans-serif;
+margin:0px;
+display:inline;
+font-size:13px;}
