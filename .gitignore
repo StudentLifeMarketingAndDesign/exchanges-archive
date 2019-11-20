@@ -1,1 +1,4 @@
 .DS_Store
+.iconv.stderr
+.tidy.stderr
+convert.log
