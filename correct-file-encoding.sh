@@ -9,8 +9,6 @@
 # @var holds the string identifying a path to a temporary directory
 tmpdir=
 echo '' > convert.log
-echo '' > .iconv.stderr
-echo '' > .tidy.stderr
 
 # Take care of any necessary cleanup tasks
 cleanup () {
@@ -31,30 +29,41 @@ trap 'cleanup TERM' TERM
 trap 'cleanup INT' INT
 
 # Make named pipe containing original file paths
-echo "Finding files to convert..." >> convert.log
-mkfifo -m 600 "$tmpdir/findOriginals"
-find . -path "./issues*" -name "*.html" -type f -print > "$tmpdir/findOriginals" &
+echo "$(gdate +"%Y.%m.%d.:%T:%N"):[INFO]:Finding *.html files to convert..." > "$tmpdir/_log" &
+mkfifo -m 600 "$tmpdir/_files"
+mkfifo -m 600 "$tmpdir/_inFlight"
+mkfifo -m 600 "$tmpdir/_log"
+find . -path "./issues*" -name "*.html" -type f -print > "$tmpdir/_files" &
 
 # Iterate through original file paths, converting to WINDOWS-1252 and tidying them
-echo "Converting files.." >> convert.log
+echo "$(gdate +"%Y.%m.%d.:%T:%N"):[INFO]:Converting *.html files.." > "$tmpdir/_log" &
 while IFS= read -r line; do
-  # All file paths must have exactly 3 '.' characters
-  new="$line.new"
-  echo "Fixing: $line -> $new" >> convert.log
-  iconv -f UTF-8 -t WINDOWS-1252 "$line" 2>>.iconv.stderr | \
-    tidy --output-xhtml true - 2>>.tidy.stderr > "$new"
-done < "$tmpdir/findOriginals"
+  _iconv="$line.iconv"
+  _tidy="$line.tidy"
+  #echo "$(gdate +"%Y.%m.%d.:%T:%N"):[FIX]:$line" >> convert.log
+  echo "$(gdate +"%Y.%m.%d.:%T:%N"):[ICONV]:$line" > "$tmpdir/_log" &
+  iconv -f UTF-8 -t WINDOWS-1252 "$line" 2>"$tmpdir/_log" > "$tmpdir/_inFlight" &
+  echo "$(gdate +"%Y.%m.%d.:%T:%N"):[TIDY]:$line" > "$tmpdir/_log" &
+  tidy --quiet --show-warnings true --show-errors true --output-xhtml true "$tmpdir/_inFlight" 2>"$tmpdir/_log" > "$_tidy" &
+  echo "\n" > "$tmpdir/_log" &
+done < "$tmpdir/_files"
 
-# Make named pipe containing newly converted file paths
-echo "Finding new files..." >> convert.log
-mkfifo -m 600 "$tmpdir/findNew"
-find . -path "./issues*" -name "*.html.new" -type f -print > "$tmpdir/findNew" &
+# Reload $files with those ending in '.html.new'
+echo "$(gdate +"%Y.%m.%d.:%T:%N"):[INFO]:Finding *.tidy files..." > "$tmpdir/_log" &
+find . -path "./issues*" -name "*.html.tidy" -type f -print > "$tmpdir/_files" &
 
-# Iterate through new file paths and move them to their original filename
-echo "Moving new files to original locations..." >> convert.log
+# Iterate through *.tidy file paths and move them to their original filename
+echo "$(gdate +"%Y.%m.%d.:%T:%N"):[INFO]:Moving *.tidy files to original locations..." > "$tmpdir/_log" &
 while IFS= read -r line; do
-  # All file paths must have exactly 3 '.' characters
-  old="$(cut -d '.' -f 2,3)"
-  echo "Moving $line -> .$old" >> convert.log
-  mv "$line" ".$old"
-done < "$tmpdir/findNew"
+  # All file paths must end with '.tidy'
+  old="${line%.tidy}"
+  echo "$(gdate +"%Y.%m.%d.:%T:%N"):[COPY]:$line \n    -> $old" > "$tmpdir/_log" &
+
+  #mv "$line" ".$old"
+done < "$tmpdir/_files"
+
+echo "$(gdate +"%Y.%m.%d.:%T:%N"):[INFO]:Removing *.iconv files..." > "$tmpdir/_log" &
+find . -path "./issues*" -name "*.html.iconv" -type f -delete
+
+echo "$(gdate +"%Y.%m.%d.:%T:%N"):[INFO]:Removing *.tidy files..." > "$tmpdir/_log" &
+find . -path "./issues*" -name "*.html.tidy" -type f -delete
