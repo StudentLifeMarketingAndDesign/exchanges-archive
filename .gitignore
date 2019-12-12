@@ -3,3 +3,8 @@ convert.log
 *.html.iconv
 *.html.tidy
 *.html.new
+*.html.cp
+*.html.utf
+*.html.sed
+hex-values.txt
+index.html.hex
